@@ -14,7 +14,7 @@ class FileStorage:
         if not cls:
             return FileStorage.__objects
 
-        return {key: value for key, value in FileStorage.__objects
+        return {key: value for key, value in FileStorage.__objects.items()
         if cls.__class__.__name__ in key}
 
     def generate_key(self, objekt=None):
