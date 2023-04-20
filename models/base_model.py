@@ -9,14 +9,14 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Instantiates a new model"""
         kwargs = kwargs if kwargs else {}
-        if not kwargs or not 'id' in kwargs:
+        if not kwargs or 'id' not in kwargs:
             kwargs['id'] = str(uuid.uuid4())
-        if not kwargs or not 'created_at' in kwargs:
+        if not kwargs or 'created_at' not in kwargs:
             kwargs['created_at'] = datetime.now().isoformat()
             kwargs['updated_at'] = kwargs['created_at']
-        
+
         self.__set_attributes(kwargs)
-    
+
     def __set_attributes(self, attr_dict):
         """
         Sets the attributes of a model instance
